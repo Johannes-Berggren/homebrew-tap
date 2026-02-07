@@ -5,21 +5,21 @@
 class Gitgoblin < Formula
   desc "A beautiful terminal-based Git dashboard"
   homepage "https://github.com/Johannes-Berggren/gitgoblin"
-  version "0.5.0"
+  version "0.6.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Johannes-Berggren/gitgoblin/releases/download/v0.5.0/gitgoblin_0.5.0_darwin_amd64.tar.gz"
-      sha256 "cdda923a50b2ba2d9866023db1ceab687c4a1b45103953937031835ee26e8dfa"
+      url "https://github.com/Johannes-Berggren/gitgoblin/releases/download/v0.6.0/gitgoblin_0.6.0_darwin_amd64.tar.gz"
+      sha256 "894d396d9161bcd9aa8761060c17e5a172b05b84be590be3d5539e5b7a44d632"
 
       def install
         bin.install "goblin"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Johannes-Berggren/gitgoblin/releases/download/v0.5.0/gitgoblin_0.5.0_darwin_arm64.tar.gz"
-      sha256 "9228d447031fb7098ce70153aa20a2f0914063939fe196ead5314d687a7e6819"
+      url "https://github.com/Johannes-Berggren/gitgoblin/releases/download/v0.6.0/gitgoblin_0.6.0_darwin_arm64.tar.gz"
+      sha256 "11be280551fe1fb205e781a9ad3c81ec10af10a236b195c784c7ff0d0bf38f61"
 
       def install
         bin.install "goblin"
@@ -29,15 +29,15 @@ class Gitgoblin < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Johannes-Berggren/gitgoblin/releases/download/v0.5.0/gitgoblin_0.5.0_linux_amd64.tar.gz"
-      sha256 "807e6c15ca34afb5515450d9d65c7e829ea959f110f75d417e840d154cee899a"
+      url "https://github.com/Johannes-Berggren/gitgoblin/releases/download/v0.6.0/gitgoblin_0.6.0_linux_amd64.tar.gz"
+      sha256 "2caf52b2f96269cf8d23f84ac2f20552fce90103b2c462f037a5a388dd2cfeb0"
       def install
         bin.install "goblin"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Johannes-Berggren/gitgoblin/releases/download/v0.5.0/gitgoblin_0.5.0_linux_arm64.tar.gz"
-      sha256 "8a0053a958e226a77363a64d27eca79e9b2a6374be5cce24e5da6e98d67e4b1b"
+      url "https://github.com/Johannes-Berggren/gitgoblin/releases/download/v0.6.0/gitgoblin_0.6.0_linux_arm64.tar.gz"
+      sha256 "678125c03f4586868506e025b379a7a724a90ce6e4a33e8ca55dae1ca0e45c8c"
       def install
         bin.install "goblin"
       end
