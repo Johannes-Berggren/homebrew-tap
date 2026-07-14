@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -50,3 +51,36 @@ jobs:
           brew style --cask "$cask"
           brew audit --new --cask "$cask"
           brew livecheck --cask "$cask"
+
+      - name: Exercise Limit Lifeboat cask lifecycle
+        if: hashFiles('Casks/limit-lifeboat.rb') != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          cask="Johannes-Berggren/tap/limit-lifeboat"
+          cleanup() {
+            brew uninstall --force --cask "$cask" >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT
+
+          brew install --cask "$cask"
+          brew list --cask "$cask"
+
+          brew reinstall --cask "$cask"
+          brew list --cask "$cask"
+
+          brew uninstall --cask "$cask"
+          if brew list --cask "$cask" >/dev/null 2>&1; then
+            echo "Cask remains installed after uninstall." >&2
+            exit 1
+          fi
+
+          brew install --cask "$cask"
+          brew uninstall --zap --cask "$cask"
+          if brew list --cask "$cask" >/dev/null 2>&1; then
+            echo "Cask remains installed after uninstall --zap." >&2
+            exit 1
+          fi
+
+          trap - EXIT
