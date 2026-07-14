@@ -1,0 +1,52 @@
+name: Homebrew CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tap:
+    name: Tap and cask
+    runs-on: macos-26
+    timeout-minutes: 30
+    permissions:
+      actions: read
+      checks: read
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@18fcb8e3e06b4247c676c506750dc95ea7226479 # 2026.07.13.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clean runner
+        run: brew test-bot --only-cleanup-before
+
+      - name: Check runner setup
+        run: brew test-bot --only-setup
+
+      - name: Validate tap syntax
+        run: brew test-bot --only-tap-syntax
+
+      - name: Test changed formulae
+        if: github.event_name == 'pull_request'
+        run: brew test-bot --only-formulae
+
+      - name: Validate Limit Lifeboat cask
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ ! -f Casks/limit-lifeboat.rb ]]; then
+            echo "Limit Lifeboat cask has not been published yet."
+            exit 0
+          fi
+
+          cask="Johannes-Berggren/tap/limit-lifeboat"
+          brew style --cask "$cask"
+          brew audit --new --cask "$cask"
+          brew livecheck --cask "$cask"
