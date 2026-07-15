@@ -49,7 +49,7 @@ jobs:
 
           cask="Johannes-Berggren/tap/limit-lifeboat"
           brew style --cask "$cask"
-          brew audit --new --cask "$cask"
+          brew audit --online --cask "$cask"
           brew livecheck --cask "$cask"
 
       - name: Exercise Limit Lifeboat cask lifecycle
