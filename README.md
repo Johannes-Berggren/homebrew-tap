@@ -8,11 +8,18 @@ Custom Homebrew formulae by [@Johannes-Berggren](https://github.com/Johannes-Ber
 brew tap Johannes-Berggren/tap
 ```
 
-## Available Formulae
+## Available packages
 
-| Formula | Description |
-|---------|-------------|
-| [gitgoblin](https://github.com/Johannes-Berggren/gitgoblin) | A beautiful terminal-based Git dashboard |
+| Package | Kind | Description |
+|---------|------|-------------|
+| [gitgoblin](https://github.com/Johannes-Berggren/gitgoblin) | Formula | A beautiful terminal-based Git dashboard |
+| [limit-lifeboat](https://limitlifeboat.com/) | Cask | A native macOS menu-bar app for monitoring and switching AI coding subscription accounts |
+
+### Limit Lifeboat
+
+```bash
+brew install --cask Johannes-Berggren/tap/limit-lifeboat
+```
 
 ### GitGoblin
 
