@@ -1,6 +1,6 @@
 cask "limit-lifeboat" do
-  version "1.1.2"
-  sha256 "fb14a20a599b84d490b60ae4e8136eda159a40565e60ab2d8d06c01905f47563"
+  version "1.1.3"
+  sha256 "3eb132a74905b20b2b1f503b95836350ba8a8218671e46031b0dc1ccb1e086d1"
 
   url "https://github.com/Johannes-Berggren/limit-lifeboat/releases/download/v#{version}/Limit-Lifeboat-#{version}-arm64.dmg",
       verified: "github.com/Johannes-Berggren/limit-lifeboat/"
