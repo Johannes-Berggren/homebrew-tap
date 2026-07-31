@@ -5,7 +5,6 @@
 class Gitgoblin < Formula
   desc "Terminal-based Git dashboard"
   homepage "https://github.com/Johannes-Berggren/gitgoblin"
-  version "0.7.0"
   license "MIT"
 
   on_macos do
