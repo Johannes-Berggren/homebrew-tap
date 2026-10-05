@@ -17,7 +17,7 @@ brew tap Johannes-Berggren/tap
 
 ### Limit Lifeboat
 
-Current version: **1.1.15**
+Current version: **1.1.16**
 
 ```bash
 brew install --cask Johannes-Berggren/tap/limit-lifeboat
